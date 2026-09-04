@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 // TODO: import your components once you build them
 import RecipeForm from "./components/RecipeForm";
 import CategoryFilter from "./components/CategoryFilter";
@@ -27,6 +27,8 @@ export default function App() {
   const [filter, setFilter] = useState(() => {
     return localStorage.getItem("filter") || "All";
   });
+
+  const favoriteCount = recipes.filter((recipe) => recipe.favorite).length;
 
   // TODO 3: add useEffect to persist `recipes` to localStorage whenever it changes.
   useEffect(() => {
@@ -83,8 +85,6 @@ export default function App() {
     filter === "All"
       ? recipes
       : recipes.filter((recipe) => recipe.category === filter);
-
-  const favoriteCount = recipes.filter((recipe) => recipe.favorite).length;
 
   return (
     <div className="min-h-screen bg-base-200 py-8 px-4">
