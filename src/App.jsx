@@ -29,46 +29,53 @@ export default function App() {
   });
 
   // TODO 3: add useEffect to persist `recipes` to localStorage whenever it changes.
+  useEffect(() => {
+    localStorage.setItem("recipes", JSON.stringify(recipes));
+  }, [recipes]);
 
   // TODO 4: add useEffect to persist `filter` to localStorage whenever it changes.
+  useEffect(() => {
+    localStorage.setItem("filter", filter);
+  }, [filter]);
 
   // TODO 5: add useEffect to update `document.title` with the favorite count.
   //         Example format: `Recipes · 3 ★`
+  useEffect(() => {
+    document.title = `Recipes · ${favoriteCount} ★`;
+  }, [favoriteCount]);
 
   // TODO 6: write handleAdd(recipe) — adds a new recipe with a unique id (Date.now()).
   //         Use the spread operator, NOT .push().
   const handleAdd = (recipe) => {
-  setRecipes((currentRecipes) => [
-    ...currentRecipes,
-    {
-      ...recipe,
-      id: Date.now(),
-      favorite: false,
-    },
-  ]);
-};
-
-const handleToggleFavorite = (id) => {
-  setRecipes((currentRecipes) =>
-    currentRecipes.map((recipe) =>
-      recipe.id === id
-        ? { ...recipe, favorite: !recipe.favorite }
-        : recipe
-    )
-  );
-};
-
-const handleDelete = (id) => {
-  setRecipes((currentRecipes) =>
-    currentRecipes.filter((recipe) => recipe.id !== id)
-  );
-};
+    setRecipes((currentRecipes) => [
+      ...currentRecipes,
+      {
+        ...recipe,
+        id: Date.now(),
+        favorite: false,
+      },
+    ]);
+  };
 
   // TODO 7: write handleToggleFavorite(id) — flips the `favorite` field of the matching recipe.
   //         Use .map() and spread; do NOT mutate the object directly.
+  const handleToggleFavorite = (id) => {
+    setRecipes((currentRecipes) =>
+      currentRecipes.map((recipe) =>
+        recipe.id === id
+          ? { ...recipe, favorite: !recipe.favorite }
+          : recipe
+      )
+    );
+  };
 
   // TODO 8: write handleDelete(id) — removes the recipe with that id.
   //         Use .filter().
+  const handleDelete = (id) => {
+    setRecipes((currentRecipes) =>
+      currentRecipes.filter((recipe) => recipe.id !== id)
+    );
+  };
 
   // TODO 9: derive `visibleRecipes` in render — if filter === "All" show all,
   //         otherwise filter by category. Do NOT store this in state.
@@ -92,26 +99,23 @@ const handleDelete = (id) => {
         {/* TODO: render <RecipeForm onAdd={handleAdd} /> */}
         <RecipeForm onAdd={handleAdd} />
 
+        {/* TODO: render <SummaryBar total={...} favorites={...} /> */}
         <SummaryBar total={recipes.length} favorites={favoriteCount} />
 
+        {/* TODO: render <CategoryFilter activeFilter={filter} onFilterChange={setFilter} /> */}
         <CategoryFilter
           activeFilter={filter}
           onFilterChange={setFilter}
         />
 
+        {/* TODO: render <RecipeList recipes={visibleRecipes}
+                                    onToggleFavorite={handleToggleFavorite}
+                                    onDelete={handleDelete} /> */}
         <RecipeList
           recipes={visibleRecipes}
           onToggleFavorite={handleToggleFavorite}
           onDelete={handleDelete}
         />
-
-        {/* TODO: render <SummaryBar total={...} favorites={...} /> */}
-
-        {/* TODO: render <CategoryFilter activeFilter={filter} onFilterChange={setFilter} /> */}
-
-        {/* TODO: render <RecipeList recipes={visibleRecipes}
-                                    onToggleFavorite={handleToggleFavorite}
-                                    onDelete={handleDelete} /> */}
 
         
       </div>
