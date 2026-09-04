@@ -1,5 +1,6 @@
 export default function RecipeCard({ recipe, onToggleFavorite, onDelete }) {
   // TODO: destructure id, title, category, time, favorite from recipe.
+  const { id, title, category, time, favorite } = recipe;
 
   return (
     <div className="card bg-base-100 shadow">
