@@ -1,9 +1,9 @@
 import { useState } from "react";
 // TODO: import your components once you build them
-// import RecipeForm from "./components/RecipeForm";
-// import CategoryFilter from "./components/CategoryFilter";
-// import RecipeList from "./components/RecipeList";
-// import SummaryBar from "./components/SummaryBar";
+import RecipeForm from "./components/RecipeForm";
+import CategoryFilter from "./components/CategoryFilter";
+import RecipeList from "./components/RecipeList";
+import SummaryBar from "./components/SummaryBar";
 
 const STARTER_RECIPES = [
   { id: 1, title: "Chicken Adobo", category: "Dinner", time: 45, favorite: false },
@@ -61,12 +61,7 @@ export default function App() {
                                     onToggleFavorite={handleToggleFavorite}
                                     onDelete={handleDelete} /> */}
 
-        <div className="alert alert-info">
-          <span>
-            Delete this alert once you have wired up your components. Then run{" "}
-            <code className="font-mono">npm run dev</code> and check the browser.
-          </span>
-        </div>
+        
       </div>
     </div>
   );
