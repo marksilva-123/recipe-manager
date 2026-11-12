@@ -30,7 +30,7 @@ export function useUpdateRecipe() {
 export function useDeleteRecipe() {
   const queryClient = useQueryClient();
   return useMutation({
-    mutationFn: (id: number) => deleteRecipe(id),
+    mutationFn: (id: SavedRecipe["id"]) => deleteRecipe(id),
     onSuccess: () => queryClient.invalidateQueries({ queryKey: KEY }),
   });
 }

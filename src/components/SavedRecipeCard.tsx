@@ -7,7 +7,7 @@ interface SavedRecipeCardProps {
   onEdit: (recipe: SavedRecipe) => void;
   onCancel: () => void;
   onSave: (patch: RecipePatch) => void;
-  onDelete: (id: number) => void;
+  onDelete: (id: SavedRecipe["id"]) => void;
   onToggleFavorite: (recipe: SavedRecipe) => void;
 }
 
