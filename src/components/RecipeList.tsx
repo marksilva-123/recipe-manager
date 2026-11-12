@@ -1,4 +1,4 @@
-import type { RecipePatch, SavedRecipe } from "@/features/recipes/recipes.types";
+import type { SavedRecipe } from "@/features/recipes/recipes.types";
 import SavedRecipeCard from "./SavedRecipeCard";
 
 interface RecipeListProps {
@@ -20,10 +20,7 @@ export default function RecipeList({ recipes, onToggleFavorite, onEdit, onDelete
         <SavedRecipeCard
           key={recipe.id}
           recipe={recipe}
-          isEditing={false}
           onEdit={onEdit}
-          onCancel={() => undefined}
-          onSave={(_patch: RecipePatch) => undefined}
           onDelete={onDelete}
           onToggleFavorite={onToggleFavorite}
           deleting={deletingId === recipe.id}
