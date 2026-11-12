@@ -24,9 +24,9 @@ export default function SavedPage() {
       <SummaryBar total={saved.length} favorites={favoriteCount} />
       <CategoryFilter categories={categories.data ?? []} activeFilter={filter} onFilterChange={setFilter} />
       {query.isPending && <div className="text-center py-12"><span className="loading loading-spinner loading-lg" /></div>}
-      {query.isError && <div className="alert alert-error">Could not load saved recipes.</div>}
+      {query.isError && <div role="alert" className="alert alert-error">Could not load saved recipes.</div>}
       {(remove.isError || update.isError || favorite.isError) && (
-        <div className="alert alert-error">The recipe could not be updated. Please try again.</div>
+        <div role="alert" className="alert alert-error">The recipe could not be updated. Please try again.</div>
       )}
       {query.data && (
         <RecipeList

@@ -14,7 +14,7 @@ export default function RecipeDetailPage() {
   }
 
   if (meal.isError) {
-    return <div className="alert alert-error"><span>Could not reach TheMealDB. Check your connection.</span></div>;
+    return <div role="alert" className="alert alert-error"><span>Could not reach TheMealDB. Check your connection.</span></div>;
   }
 
   if (!meal.data) {
