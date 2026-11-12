@@ -1,0 +1,48 @@
+{
+  "recipes": [
+    {
+      "mealId": "52772",
+      "title": "Teriyaki Chicken Casserole",
+      "category": "Chicken",
+      "thumb": "https://www.themealdb.com/images/media/meals/wvpsxx1468256321.jpg",
+      "ingredients": ["soy sauce", "chicken", "rice"],
+      "time": 45,
+      "notes": "Serve with steamed rice.",
+      "favorite": false,
+      "id": 1
+    },
+    {
+      "mealId": "52977",
+      "title": "Corba",
+      "category": "Vegetarian",
+      "thumb": "https://www.themealdb.com/images/media/meals/58oia61564916529.jpg",
+      "ingredients": ["lentils", "onion", "tomato"],
+      "time": 35,
+      "notes": "Finish with lemon.",
+      "favorite": true,
+      "id": 2
+    },
+    {
+      "mealId": "52844",
+      "title": "Lasagne",
+      "category": "Pasta",
+      "thumb": "https://www.themealdb.com/images/media/meals/wtsvxx1511296896.jpg",
+      "ingredients": ["lasagne sheets", "beef", "tomato sauce"],
+      "time": 90,
+      "notes": "Rest before serving.",
+      "favorite": false,
+      "id": 3
+    },
+    {
+      "mealId": "52803",
+      "title": "Beef Wellington",
+      "category": "Beef",
+      "thumb": "https://www.themealdb.com/images/media/meals/vvpprx1487325699.jpg",
+      "ingredients": ["beef fillet", "pastry", "mushrooms"],
+      "time": 120,
+      "notes": "Chill before wrapping.",
+      "favorite": false,
+      "id": 4
+    }
+  ]
+}
