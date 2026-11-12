@@ -1,12 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 
 interface SearchBarProps {
-  term: string;
-  onChange: (term: string) => void;
+  onSearch: (term: string) => void;
 }
 
-export default function SearchBar({ term, onChange }: SearchBarProps) {
-  const [value, setValue] = useState(term);
+export default function SearchBar({ onSearch }: SearchBarProps) {
+  const [value, setValue] = useState("");
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
@@ -14,9 +13,9 @@ export default function SearchBar({ term, onChange }: SearchBarProps) {
   }, []);
 
   useEffect(() => {
-    const timeout = window.setTimeout(() => onChange(value.trim()), 300);
+    const timeout = window.setTimeout(() => onSearch(value.trim()), 300);
     return () => window.clearTimeout(timeout);
-  }, [value, onChange]);
+  }, [value, onSearch]);
 
   return (
     <input

@@ -1,4 +1,5 @@
 import type { RecipePatch, SavedRecipe } from "@/features/recipes/recipes.types";
+import { Link } from "react-router-dom";
 import EditRecipeForm from "./EditRecipeForm";
 
 interface SavedRecipeCardProps {
@@ -9,6 +10,7 @@ interface SavedRecipeCardProps {
   onSave: (patch: RecipePatch) => void;
   onDelete: (id: SavedRecipe["id"]) => void;
   onToggleFavorite: (recipe: SavedRecipe) => void;
+  deleting?: boolean;
 }
 
 export default function SavedRecipeCard({
@@ -19,6 +21,7 @@ export default function SavedRecipeCard({
   onSave,
   onDelete,
   onToggleFavorite,
+  deleting = false,
 }: SavedRecipeCardProps) {
   return (
     <article className="card bg-base-100 shadow">
@@ -31,7 +34,7 @@ export default function SavedRecipeCard({
         ) : (
           <>
             <div className="flex items-start justify-between gap-3">
-              <h2 className="card-title">{recipe.title}</h2>
+              <h2 className="card-title"><Link to={`/recipe/${recipe.mealId}`}>{recipe.title}</Link></h2>
               <button
                 className="btn btn-ghost btn-sm"
                 type="button"
@@ -50,8 +53,8 @@ export default function SavedRecipeCard({
               <button type="button" className="btn btn-ghost btn-sm" onClick={() => onEdit(recipe)}>
                 Edit
               </button>
-              <button type="button" className="btn btn-error btn-sm" onClick={() => onDelete(recipe.id)}>
-                Delete
+              <button type="button" className="btn btn-error btn-sm" onClick={() => onDelete(recipe.id)} disabled={deleting}>
+                {deleting ? "Deleting..." : "Delete"}
               </button>
             </div>
           </>

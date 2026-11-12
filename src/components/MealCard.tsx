@@ -1,4 +1,5 @@
 import type { Recipe } from "@/features/meals/meals.types";
+import { Link } from "react-router-dom";
 
 interface MealCardProps {
   meal: Recipe;
@@ -16,7 +17,7 @@ export default function MealCard({ meal, isSaved, isSaving, onSave }: MealCardPr
         <img src={meal.thumb} alt={meal.title} className="h-48 w-full object-cover" />
       </figure>
       <div className="card-body">
-        <h2 className="card-title">{meal.title}</h2>
+        <h2 className="card-title"><Link to={`/recipe/${meal.mealId}`}>{meal.title}</Link></h2>
         <span className="badge badge-primary">{meal.category}</span>
         <div className="card-actions justify-end">
           <button
