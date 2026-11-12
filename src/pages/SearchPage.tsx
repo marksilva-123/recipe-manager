@@ -15,6 +15,7 @@ export default function SearchPage() {
   return (
     <>
       <SearchBar onSearch={setTerm} />
+      {create.isError && <div className="alert alert-error"><span>Could not save this meal.</span></div>}
       {search.isLoading && <div className="text-center py-8"><span className="loading loading-spinner loading-lg" /></div>}
       {search.isError && <div className="alert alert-error"><span>Could not reach TheMealDB. Check your connection.</span></div>}
       {!search.isLoading && term && results.length === 0 && (
